@@ -1,0 +1,2 @@
+Распаковать скомпилированную версию CURL
+[https://bintray.com/artifact/download/vszakats/generic/curl-7.54.1-win32-mingw.7z]
