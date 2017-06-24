@@ -57,7 +57,8 @@ int main(int argc, char *argv[])
         {"offset", std::to_string(offset)}
     };
     VK::json jres = api.call("wall.getComments", params);
-    if(jres == nullptr){
+    if(jres == nullptr)
+    {
         return 1;
     }
 
