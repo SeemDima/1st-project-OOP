@@ -7,9 +7,14 @@ SOURCES += main.cpp \
     ../VK-master/src/api.cpp \
     ../VK-master/src/attachment.cpp \
     ../VK-master/src/messages.cpp \
-    comments.cpp
+    ../gtest/googletest/src/gtest-all.cc \
+    post.cpp \
+    tests.cpp \
+    ../../total_control/total_control/timestamp.cpp
 
-INCLUDEPATH += $$PWD/curl/include
+INCLUDEPATH += $$PWD/curl/include \
+    ../gtest/googletest/include \
+    ../gtest/googletest
 
 LIBS += -L$$PWD/curl/lib -lcurldll
 
@@ -18,4 +23,5 @@ HEADERS += \
     ../VK-master/src/attachment.h \
     ../VK-master/src/json.hpp \
     ../VK-master/src/messages.h \
-    comments.h
+    post.h \
+    ../../total_control/total_control/timestamp.h
