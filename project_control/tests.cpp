@@ -134,4 +134,16 @@ TEST_F(TestPost, DISABLED_controller_time_distribution_2nd)
     }
     EXPECT_NEAR(count, 100, 0.1);
 }
+TEST_F(TestPost, test_controller_spamer)
+{
+    foo->set_post_info(-22541491, 483806);
+    ASSERT_EQ(foo->is_set(), true);
+
+    foo->get_all_comments();
+
+    Controller controller;
+    vector<int> A = controller.find_spamer_in_post(*foo, size_t(6));
+    ASSERT_EQ(A.size(), size_t(1));
+    EXPECT_EQ(A[0] ,11782003);
+}
 

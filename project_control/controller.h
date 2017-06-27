@@ -11,12 +11,17 @@ private :
     std::multimap<Timestamp, int> _time_line;
 
 public :
+    /* Vector designed to fill the number of events by the clock */
     std::vector<double> _time_distribution;
 
     Controller() {}
 
+    /* Constructor for controlling comments
+     */
     Controller(VK::vector_comments &data_vector);
 
+    /* Returns amount of events at time_line
+     */
     size_t get_number_of_events() { return _time_line.size(); }
 
     /* Initializes multimap by time(in format of Timestamp) with comment id;
@@ -31,7 +36,9 @@ public :
      */
     void calculate_time_distribution();
 
-    std::vector<int> find_spamer_in_post(VK::Post &post);
+    /* Returns a vector<int> filled with users_id who wrote more than critical_amount same comments
+     */
+    std::vector<int> find_spamer_in_post(VK::Post &post, size_t critical_amount);
 };
 
 #endif // CONTROLLER_H

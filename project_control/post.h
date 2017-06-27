@@ -28,6 +28,8 @@ public:
      */
     std::string getName(Client &api);
 
+    int getFromId() { return _from_id; }
+
     int getId() { return _id; }
 
     std::string getText() { return _text;}
