@@ -11,7 +11,7 @@ protected:
     static void SetUpTestCase()
     {
         foo = new VK::Post;
-        if(foo->auth("dimintr", "temppass"))
+        if(foo->auth("********", "********"))
         {
             cout << "Auth ok" << endl;
             cout << "Access token: " << foo->access_token() << endl << endl;
@@ -32,7 +32,7 @@ protected:
 
 VK::Post* TestPost::foo = nullptr;
 
-TEST_F(TestPost, DISABLED_test_limited_comments)
+TEST_F(TestPost, test_limited_comments)
 {
     foo->set_post_info(-128061542, 52);
     ASSERT_EQ(foo->is_set(), true);
@@ -52,7 +52,7 @@ TEST_F(TestPost, test_all_comments_15305)
     EXPECT_EQ(foo->_vector_comments[0].getText(), "Источник: http://www.phys.nsu.ru/ok03/Manuals.html");
 }
 
-TEST_F(TestPost, DISABLED_test_all_comments_anacondaz)
+TEST_F(TestPost, test_all_comments_anacondaz)
 {
     foo->set_post_info(-2736916, 93458);
     ASSERT_EQ(foo->is_set(), true);
@@ -61,16 +61,16 @@ TEST_F(TestPost, DISABLED_test_all_comments_anacondaz)
     ASSERT_EQ(foo->_vector_comments.size(), unsigned(35));
 }
 
-TEST_F(TestPost, DISABLED_test_all_comments_academeg)
+TEST_F(TestPost, test_all_comments_academeg)
 {
     foo->set_post_info(225756388, 677461);
     ASSERT_EQ(foo->is_set(), true);
 
     foo->get_all_comments();
-    ASSERT_EQ(foo->_vector_comments.size(), unsigned(723));
+    ASSERT_EQ(foo->_vector_comments.size(), unsigned(722));
 }
 
-TEST_F(TestPost, DISABLED_test_all_comments_povar)
+TEST_F(TestPost, test_all_comments_povar)
 {
     foo->set_post_info(-48618580, 6);
     ASSERT_EQ(foo->is_set(), true);
@@ -79,7 +79,7 @@ TEST_F(TestPost, DISABLED_test_all_comments_povar)
     ASSERT_EQ(foo->_vector_comments.size(), unsigned(180));
 }
 
-TEST_F(TestPost, DISABLED_time_parser)
+TEST_F(TestPost, time_parser)
 {
     foo->set_post_info(-128061542, 52);
     ASSERT_EQ(foo->is_set(), true);
@@ -90,7 +90,7 @@ TEST_F(TestPost, DISABLED_time_parser)
     cout << endl << "time: " << foo->_vector_comments[0].getDate_as_string() << endl;
 }
 
-TEST_F(TestPost, DISABLED_controller_time_distribution_1st)
+TEST_F(TestPost, controller_time_distribution_1st)
 {
     foo->set_post_info(-128061542, 52);
     ASSERT_EQ(foo->is_set(), true);
@@ -107,16 +107,16 @@ TEST_F(TestPost, DISABLED_controller_time_distribution_1st)
     EXPECT_NEAR(controller._time_distribution[22], 50, 0.1);
 }
 
-TEST_F(TestPost, DISABLED_controller_time_distribution_2nd)
+TEST_F(TestPost, controller_time_distribution_2nd)
 {
     foo->set_post_info(225756388, 677461);
     ASSERT_EQ(foo->is_set(), true);
 
     foo->get_all_comments();
-    ASSERT_EQ(foo->_vector_comments.size(), unsigned(723));
+    ASSERT_EQ(foo->_vector_comments.size(), unsigned(722));
 
     Controller controller(foo->_vector_comments);
-    ASSERT_EQ(controller.get_number_of_events(), unsigned(723));
+    ASSERT_EQ(controller.get_number_of_events(), unsigned(722));
 
     controller.calculate_time_distribution();
 
