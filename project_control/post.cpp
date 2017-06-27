@@ -17,7 +17,8 @@ bool VK::Comment::setComment(const json &data)
     }
     if(data.find("from_id") == data.end() ||
        data.find("date") == data.end() ||
-       data.find("id") == data.end())
+       data.find("id") == data.end() ||
+       data.find("text") == data.end())
     {
         return false;
     }
@@ -25,6 +26,7 @@ bool VK::Comment::setComment(const json &data)
     this->_from_id = data.at("from_id").get<size_t>();
     this->_date = data.at("date").get<size_t>();
     this->_id = data.at("id").get<size_t>();
+    this->_text = data.at("text").get<std::string>();
     return true;
 }
 

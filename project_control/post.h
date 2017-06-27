@@ -14,6 +14,7 @@ private:
     int _id;      // identifier of comment
     int _from_id; // id of the user who wrote the comment
     size_t _date;    // data of comment in format of Unixtime
+    std::string _text;
 
 public:
     Comment();
@@ -26,6 +27,10 @@ public:
      * in format: Surname Name
      */
     std::string getName(Client &api);
+
+    int getId() { return _id; }
+
+    std::string getText() { return _text;}
 
     size_t getDate();
     std::string getDate_as_string(); //YYYY-MM-DD HH:MM
@@ -72,7 +77,7 @@ public:
      */
     bool get_all_comments();
 
-    virtual ~Post(){ std::cout << "deleted"; }
+    virtual ~Post(){ /*std::cout <<"object Post was deleted" << std::endl;*/ }
 };
 
 } //namespace VK
