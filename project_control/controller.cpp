@@ -84,7 +84,7 @@ std::vector<int> Controller::find_spamer_in_post(VK::Post &post, size_t critical
         MapInt_String_iterator e_it;
         for (e_it = keyRange.first++;  e_it != keyRange.second;  ++e_it)
         {
-            if (e_it->second == comment_text) // изменить на мапу комментов
+            if (e_it->second == comment_text)
                 ++count;
         }
         if (count >= critical_amount)
