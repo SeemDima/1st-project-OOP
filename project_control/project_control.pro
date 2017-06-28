@@ -10,8 +10,8 @@ SOURCES += main.cpp \
     ../gtest/googletest/src/gtest-all.cc \
     post.cpp \
     tests.cpp \
-    ../../total_control/total_control/timestamp.cpp \
-    controller.cpp
+    controller.cpp \
+    ../Timestamp/timestamp.cpp
 
 INCLUDEPATH += $$PWD/curl/include \
     ../gtest/googletest/include \
@@ -25,5 +25,5 @@ HEADERS += \
     ../VK-master/src/json.hpp \
     ../VK-master/src/messages.h \
     post.h \
-    ../../total_control/total_control/timestamp.h \
-    controller.h
+    controller.h \
+    ../Timestamp/timestamp.h

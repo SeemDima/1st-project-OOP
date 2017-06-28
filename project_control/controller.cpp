@@ -23,7 +23,6 @@ void Controller::calculate_time_distribution()
     }
     _time_distribution.clear();
     _time_distribution.resize(24);
-    //time_distribution.reserve(24);
 
     for (std::multimap<Timestamp, int>::iterator b_it = _time_line.begin(), e_it = _time_line.end();
          b_it != _time_line.end();

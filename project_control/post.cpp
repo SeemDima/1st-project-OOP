@@ -4,7 +4,7 @@
 #include <ctime>
 #include <string>
 #include "post.h"
-#include "../../total_control/total_control/timestamp.h"
+#include "../Timestamp/timestamp.h"
 
 VK::Comment::Comment() {}
 
